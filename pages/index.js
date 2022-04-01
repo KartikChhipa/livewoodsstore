@@ -28,7 +28,7 @@ export default function Home(props) {
                     <CardMedia
                       component="img"
                       alt={product.name}
-                      image={product.media.source}
+                      image={product.image.url}
                     />
                     <CardContent>
                       <Typography

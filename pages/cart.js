@@ -70,19 +70,23 @@ function Cart(props) {
                   <Table aria-label="Orders">
                     <TableHead>
                       <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell align="right">Quantity</TableCell>
-                        <TableCell align="right">Price</TableCell>
-                        <TableCell align="right">Action</TableCell>
+                        <TableCell align="center">Name</TableCell>
+                        <TableCell align ="center">Product</TableCell>
+                        <TableCell align="center">Quantity</TableCell>
+                        <TableCell align="center">Price</TableCell>
+                        <TableCell align="center">Action</TableCell>
+
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {cart.data.line_items.map((cartItem) => (
                         <TableRow key={cartItem.name}>
-                          <TableCell component="th" scope="row">
+                          <TableCell component="th" scope="row" align="center">
                             {cartItem.name}
                           </TableCell>
-                          <TableCell align="right">
+                          <TableCell align="center"><img src={cartItem.image.url} height="120px" width="120px" passHref/></TableCell>
+
+                          <TableCell align="center">
                             <Select
                               labelId="quanitity-label"
                               id="quanitity"
@@ -98,10 +102,10 @@ function Cart(props) {
                               ))}
                             </Select>
                           </TableCell>
-                          <TableCell align="right">
+                          <TableCell align="center">
                             {cartItem.price.formatted_with_symbol}
                           </TableCell>
-                          <TableCell align="right">
+                          <TableCell align="center">
                             <Button
                               onClick={() => removeFromCartHandler(cartItem)}
                               variant="contained"

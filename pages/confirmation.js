@@ -45,7 +45,7 @@ function Confirmation(props) {
       ) : (
         <React.Fragment>
           <Typography variant="h1" component="h1">
-            Order {order.id}
+            Order ID : {order.id}
           </Typography>
           <Slide direction="up" in={true}>
             <Grid container spacing={1}>
@@ -55,21 +55,21 @@ function Confirmation(props) {
                     Customer details
                   </Typography>
                   <Typography>
-                    {order.customer.firstname} {order.customer.lastname}
+                    Name - {order.customer.firstname} {order.customer.lastname}
                   </Typography>
-                  <Typography>{order.customer.email}</Typography>
+                  <Typography>Email - {order.customer.email}</Typography>
                 </Card>
                 <Card className={[classes.p1, classes.mt1]}>
                   <Typography variant="h2" component="h2">
                     Shipping details
                   </Typography>
-                  <Typography>{order.shipping.name}</Typography>
-                  <Typography>{order.shipping.street}</Typography>
+                  <Typography>Name - {order.shipping.name}</Typography>
+                  <Typography>Street - {order.shipping.street}</Typography>
                   <Typography>
-                    {order.shipping.town_city}, {order.shipping.county_state}{' '}
+                    Address - {order.shipping.town_city}, {order.shipping.county_state}{' '}
                     {order.shipping.postal_zip_code}
                   </Typography>
-                  <Typography> {order.shipping.country}</Typography>
+                  <Typography>Country - {order.shipping.country}</Typography>
                 </Card>
                 <Card className={[classes.p1, classes.mt1]}>
                   <Typography variant="h2" component="h2">
@@ -100,21 +100,21 @@ function Confirmation(props) {
                     <Table aria-label="Orders">
                       <TableHead>
                         <TableRow>
-                          <TableCell>Name</TableCell>
-                          <TableCell align="right">Quantity</TableCell>
-                          <TableCell align="right">Price</TableCell>
+                          <TableCell align="center">Name</TableCell>
+                          <TableCell align="center">Quantity</TableCell>
+                          <TableCell align="center">Price</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {order.order.line_items.map((cartItem) => (
                           <TableRow key={cartItem.name}>
                             <TableCell component="th" scope="row">
-                              {cartItem.name}
+                              <img src={cartItem.image.url} height="120px" width="120px" passHref/>
                             </TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center">
                               {cartItem.quantity}
                             </TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center">
                               {cartItem.price.formatted_with_symbol}
                             </TableCell>
                           </TableRow>
@@ -146,11 +146,6 @@ function Confirmation(props) {
                       <Grid container>
                         <Grid item xs={6}>
                           <Typography>Tax</Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                          <Typography align="right">
-                            {order.order.tax.amount.formatted_with_symbol}
-                          </Typography>
                         </Grid>
                       </Grid>
                     </ListItem>
