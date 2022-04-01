@@ -100,7 +100,7 @@ function Confirmation(props) {
                     <Table aria-label="Orders">
                       <TableHead>
                         <TableRow>
-                          <TableCell align="center">Name</TableCell>
+                          <TableCell align="center">Product</TableCell>
                           <TableCell align="center">Quantity</TableCell>
                           <TableCell align="center">Price</TableCell>
                         </TableRow>
@@ -108,8 +108,8 @@ function Confirmation(props) {
                       <TableBody>
                         {order.order.line_items.map((cartItem) => (
                           <TableRow key={cartItem.name}>
-                            <TableCell component="th" scope="row">
-                              <img src={cartItem.image.url} height="120px" width="120px" passHref/>
+                            <TableCell component="th" scope="row" align="center">
+                              <img src={cartItem.image.url} height="120px" width="120px" align="center" passHref/>
                             </TableCell>
                             <TableCell align="center">
                               {cartItem.quantity}
